@@ -1,0 +1,152 @@
+export const translations = {
+  ar: {
+    appTitle: 'Nucleus v40.0',
+    appSubtitle: 'Synthetic Convergence | محرك التظليل الفراكتالي وتوليد تطبيقات سطح المكتب',
+    creator: 'Hnyn Yos © 2026',
+    studioMode: 'وضع الاستوديو (شاشة مدمجة)',
+    visualizerMode: 'شاشة التظليل الكاملة (Zen)',
+    guideMode: 'دليل وتكوين Tauri لسطح المكتب',
+    langToggle: 'English',
+    downloadHtmlGuide: 'تحميل هذا الدليل كملف HTML',
+    downloadZipBundle: 'تحميل حزمة Tauri الكاملة (.ZIP)',
+    captureSnapshot: 'التقاط صورة فنية عالية الدقة',
+    copiedToClipboard: 'تم النسخ إلى الحافظة بنجاح!',
+    copyCode: 'نسخ الكود',
+    generateZip: 'توليد وتنزيل الحزمة (.zip)',
+    generating: 'جاري التوليد...',
+    
+    // Tabs & Sections
+    filesOverview: '1. هيكل مجلدات المشروع',
+    configSettings: 'إعدادات النافذة وتطبيق Tauri',
+    codeInspector: 'مستعرض ملفات المصدر (Tauri + Rust)',
+    runCommands: 'أوامر التشغيل والبناء النهائية',
+    shaderControls: 'معايير التظليل الفراكتالي',
+    presets: 'الأنماط الجاهزة (Presets)',
+    audioMotion: 'التفاعل الصوتي والنبضات',
+    
+    // Config fields
+    productName: 'اسم المنتج',
+    version: 'رقم الإصدار',
+    appIdentifier: 'المعرف الفريد (App Identifier)',
+    authorName: 'اسم المطور',
+    windowWidth: 'عرض النافذة (Width)',
+    windowHeight: 'ارتفاع النافذة (Height)',
+    resizable: 'إمكانية تغيير الحجم',
+    fullscreen: 'ملء الشاشة الافتراضي',
+    decorations: 'إطارات النافذة (Decorations)',
+    transparent: 'خلفية شفافة (Transparent)',
+    category: 'تصنيف التطبيق',
+    
+    // Shader controls
+    iterations: 'تكرارات الفراكتال (Iterations)',
+    zoom: 'مستوى التكبير والعمق (Zoom)',
+    warp: 'انحناء الفضاء الحركي (Space Warp)',
+    speed: 'سرعة التدفق الزمني (Speed)',
+    glow: 'كثافة التوهج النيوني (Neon Glow)',
+    chromatic: 'التشتت اللوني (Aberration)',
+    palette: 'لوحة الألوان التفاعلية',
+    feedbackDecay: 'اضمحلال التغذية الراجعة (Feedback Decay)',
+    audioReactivity: 'تفعيل التفاعل الصوتي السيبراني',
+    audioPulse: 'تردد النبض الإيقاعي',
+    audioIntensity: 'حساسية الترددات',
+    
+    // Presets
+    presetSynthetic: 'Synthetic Convergence (التقارب التوليدي)',
+    presetSyntheticDesc: 'النمط الافتراضي لـ Nucleus 40.0 بألوان السيان والماجنتا المتداخلة',
+    presetQuantum: 'Quantum Lattice (الشبكة الكمومية)',
+    presetQuantumDesc: 'هندسة كوانتوم فائقة الدقة بتدرجات الزمرد النيوني والتوهج البصري',
+    presetBio: 'Bio-Singularity (التفرد الحيوي)',
+    presetBioDesc: 'تموجات عضوية مشعة بتغذية راجعة سريعة وإزاحات لونية طيفية',
+    presetVoid: 'Cybernetic Void (الفراغ السيبراني)',
+    presetVoidDesc: 'أحادية اللون العميقة مع خطوط تفصيلية فائقة التباين والعمق',
+    presetSolar: 'Solar Flare (الوهج الشمسي)',
+    presetSolarDesc: 'طاقة نارية ذهبية مع نبضات مكثفة وتراكيب هندسية معقدة',
+    
+    // Bottom dock
+    hideControls: 'إخفاء لوحة التحكم',
+    showControls: 'إظهار لوحة التحكم',
+    activeShader: 'محرك WebGL / GLSL نشط',
+    interactiveHint: 'اسحب بالماوس لتدوير زاوية الرؤية والفراكتال | استخدم عجلة الماوس للتقريب',
+    
+    // Guide description
+    guideIntro: 'هذا النظام يجمع كافة الإعدادات والملفات الهندسية المطلوبة لتحويل نظام التظليل الفراكتالي (WebGL/Three.js) إلى تطبيق سطح مكتب مستقل فائق السرعة والأداء باستخدام إطار العمل الحديث Tauri v1.5 / Rust.',
+    devCmdDesc: 'لتشغيل التطبيق ومعاينته حياً على جهازك:',
+    buildCmdDesc: 'لبناء الحزمة التنفيذية النهائية المستقلة (.exe للويندوز أو .dmg للماك أو .deb للينكس):',
+    rustPrereq: 'المتطلب الأساسي: تثبيت محرك Rust و Node.js على جهازك:',
+  },
+  en: {
+    appTitle: 'Nucleus v40.0',
+    appSubtitle: 'Synthetic Convergence | Interactive Fractal Art Engine & Desktop Builder',
+    creator: 'Hnyn Yos © 2026',
+    studioMode: 'Studio View (Split)',
+    visualizerMode: 'Visualizer (Zen Fullscreen)',
+    guideMode: 'Tauri Desktop Guide & Config',
+    langToggle: 'العربية',
+    downloadHtmlGuide: 'Download Guide as HTML',
+    downloadZipBundle: 'Download Tauri Package (.ZIP)',
+    captureSnapshot: 'Capture High-Res Art Snapshot',
+    copiedToClipboard: 'Copied to clipboard!',
+    copyCode: 'Copy Code',
+    generateZip: 'Generate & Download ZIP',
+    generating: 'Generating package...',
+    
+    // Tabs & Sections
+    filesOverview: '1. Project Directory Structure',
+    configSettings: 'Window & Tauri Desktop Settings',
+    codeInspector: 'Source File Inspector (Tauri + Rust)',
+    runCommands: 'Run & Build Commands',
+    shaderControls: 'Fractal Shader Parameters',
+    presets: 'Factory Presets',
+    audioMotion: 'Audio Reactivity & Pulse',
+    
+    // Config fields
+    productName: 'Product Name',
+    version: 'Version',
+    appIdentifier: 'App Identifier (Bundle ID)',
+    authorName: 'Author Name',
+    windowWidth: 'Window Width (px)',
+    windowHeight: 'Window Height (px)',
+    resizable: 'Resizable Window',
+    fullscreen: 'Default Fullscreen',
+    decorations: 'Window Borders & Titlebar',
+    transparent: 'Transparent Window',
+    category: 'App Category',
+    
+    // Shader controls
+    iterations: 'Fractal Iterations',
+    zoom: 'Depth & Zoom Level',
+    warp: 'Kinematic Space Warp',
+    speed: 'Temporal Flow Speed',
+    glow: 'Neon Glow Intensity',
+    chromatic: 'Chromatic Aberration',
+    palette: 'Color Scheme Palette',
+    feedbackDecay: 'Feedback Loop Decay',
+    audioReactivity: 'Enable Cyber Audio Reactivity',
+    audioPulse: 'Rhythmic Pulse Frequency',
+    audioIntensity: 'Frequency Sensitivity',
+    
+    // Presets
+    presetSynthetic: 'Synthetic Convergence',
+    presetSyntheticDesc: 'The flagship signature mode of Nucleus 40.0 with dual cyan-magenta harmonics',
+    presetQuantum: 'Quantum Lattice',
+    presetQuantumDesc: 'High-precision quantum matrix with emerald phosphor and refractive optics',
+    presetBio: 'Bio-Singularity',
+    presetBioDesc: 'Organic bioluminescent feedback waves with chromatic dispersion',
+    presetVoid: 'Cybernetic Void',
+    presetVoidDesc: 'Deep obsidian monochrome with ultra-high contrast geometric vectors',
+    presetSolar: 'Solar Flare',
+    presetSolarDesc: 'Golden thermionic plasma with intense cyclical bursts and solar harmonics',
+    
+    // Bottom dock
+    hideControls: 'Hide Controls',
+    showControls: 'Show Controls',
+    activeShader: 'WebGL / GLSL Engine Active',
+    interactiveHint: 'Drag to orbit & warp fractal space | Scroll to zoom in/out',
+    
+    // Guide description
+    guideIntro: 'This system brings together all configurations and engineering files required to compile the WebGL/Three.js fractal feedback loop into a native, standalone, high-performance desktop application using Tauri and Rust.',
+    devCmdDesc: 'To launch and preview live on your development workstation:',
+    buildCmdDesc: 'To build the final standalone executable package (.exe for Windows, .dmg/.app for macOS, or .deb for Linux):',
+    rustPrereq: 'Prerequisite: Install Rust toolchain & Node.js on your machine:',
+  }
+};

@@ -1,0 +1,30 @@
+@import "tailwindcss";
+
+@layer base {
+  body {
+    background-color: #07070b;
+    color: #e2e8f0;
+    font-family: 'Noto Sans Arabic', 'Tajawal', 'Segoe UI', Tahoma, -apple-system, BlinkMacSystemFont, Roboto, sans-serif;
+    overflow-x: hidden;
+  }
+
+  code, pre, .font-mono {
+    font-family: 'JetBrains Mono', monospace;
+  }
+}
+
+/* Custom cyber scrollbars */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: #0a0a12;
+}
+::-webkit-scrollbar-thumb {
+  background: #1f2438;
+  border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #00f0ff;
+}

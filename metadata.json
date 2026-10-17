@@ -1,0 +1,6 @@
+{
+  "name": "Nucleus v40.0 | Synthetic Convergence",
+  "description": "Interactive Fractal Feedback Loop & Synthetic Convergence Art Engine with Desktop App Tauri Builder.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
