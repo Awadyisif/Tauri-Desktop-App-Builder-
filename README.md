@@ -108,3 +108,4 @@ npm run build
 ## 📜 الترخيص وحقوق الملكية (License)
 جميع الحقوق محفوظة للمطور **Hnyn Yos © 2026**.  
 *Interactive Fractal Feedback Loop & Synthetic Convergence Art Engine.*
+
