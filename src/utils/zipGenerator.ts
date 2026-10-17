@@ -5,6 +5,7 @@ import {
   generateCargoToml,
   generatePackageJson,
   generateMainRs,
+  generateReadmeMd,
   generateStandaloneHtml,
   generateGuideHtml,
 } from './tauriConfig.ts';
@@ -16,31 +17,7 @@ export async function createDesktopZip(config: DesktopConfig, params: ShaderPara
 
   // Root files
   root.file('package.json', generatePackageJson(config));
-  root.file(
-    'README.md',
-    `# ${config.productName} v${config.version}
-${config.description}
-
-Developed by: ${config.author}
-License: Copyright ${config.copyright}
-
-## Getting Started
-
-1. Ensure Node.js and Rust are installed.
-2. Install dependencies:
-   \`\`\`bash
-   npm install
-   \`\`\`
-3. Run development desktop app:
-   \`\`\`bash
-   npm run dev
-   \`\`\`
-4. Build release executable:
-   \`\`\`bash
-   npm run build
-   \`\`\`
-`
-  );
+  root.file('README.md', generateReadmeMd(config));
 
   // Guide documentation
   root.file('Nucleus_Desktop_Guide.html', generateGuideHtml(config));

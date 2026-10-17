@@ -6,6 +6,7 @@ import {
   generateCargoToml,
   generatePackageJson,
   generateMainRs,
+  generateReadmeMd,
   generateGuideHtml,
 } from './tauriConfig.ts';
 
@@ -52,3 +53,13 @@ test('generateGuideHtml includes download self trigger and file blocks', () => {
   assert.ok(html.includes('npm run dev'));
   assert.ok(html.includes('npm run build'));
 });
+
+test('generateReadmeMd produces structured Markdown documentation', () => {
+  const md = generateReadmeMd(defaultDesktopConfig);
+  assert.ok(md.includes('# Nucleus Synthetic Convergence v40.0.0'));
+  assert.ok(md.includes('README.md'));
+  assert.ok(md.includes('tauri.conf.json'));
+  assert.ok(md.includes('Hnyn Yos © 2026'));
+  assert.ok(md.includes('npm run dev'));
+});
+

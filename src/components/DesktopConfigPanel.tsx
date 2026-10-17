@@ -6,6 +6,7 @@ import {
   generateCargoToml,
   generatePackageJson,
   generateMainRs,
+  generateReadmeMd,
   generateGuideHtml,
   generateStandaloneHtml,
 } from '../utils/tauriConfig.ts';
@@ -15,6 +16,7 @@ import {
   Copy,
   Check,
   FileCode,
+  FileText,
   FolderTree,
   Sliders,
   Terminal,
@@ -30,7 +32,7 @@ interface DesktopConfigPanelProps {
   lang: Language;
 }
 
-type TabType = 'tauri' | 'package' | 'cargo' | 'main' | 'html' | 'commands' | 'settings';
+type TabType = 'tauri' | 'package' | 'cargo' | 'main' | 'html' | 'readme' | 'commands' | 'settings';
 
 export const DesktopConfigPanel: React.FC<DesktopConfigPanelProps> = ({
   config,
@@ -49,6 +51,7 @@ export const DesktopConfigPanel: React.FC<DesktopConfigPanelProps> = ({
   const packageJson = generatePackageJson(config);
   const mainRs = generateMainRs();
   const indexHtml = generateStandaloneHtml(config, shaderParams);
+  const readmeMd = generateReadmeMd(config);
 
   const getCurrentFileContent = (): string => {
     switch (activeTab) {
@@ -62,6 +65,8 @@ export const DesktopConfigPanel: React.FC<DesktopConfigPanelProps> = ({
         return mainRs;
       case 'html':
         return indexHtml;
+      case 'readme':
+        return readmeMd;
       default:
         return '';
     }
@@ -74,6 +79,12 @@ export const DesktopConfigPanel: React.FC<DesktopConfigPanelProps> = ({
       setCopied(true);
       setTimeout(() => setCopied(false), 2000);
     }
+  };
+
+  // Download README.md directly
+  const handleDownloadReadme = () => {
+    const blob = new Blob([readmeMd], { type: 'text/markdown;charset=utf-8' });
+    downloadBlob(blob, 'README.md');
   };
 
   // Download self HTML guide matching prompt
@@ -189,6 +200,21 @@ export const DesktopConfigPanel: React.FC<DesktopConfigPanelProps> = ({
         </button>
 
         <button
+          onClick={() => setActiveTab('readme')}
+          className={`px-3 py-2 border-b-2 flex items-center gap-1.5 transition cursor-pointer whitespace-nowrap ${
+            activeTab === 'readme'
+              ? 'border-emerald-400 text-emerald-300 bg-emerald-950/30 font-bold'
+              : 'border-transparent text-gray-400 hover:text-white'
+          }`}
+        >
+          <FileText className="w-3.5 h-3.5 text-emerald-400" />
+          <span>README.md</span>
+          <span className="text-[10px] px-1 rounded bg-emerald-900/60 text-emerald-300 border border-emerald-500/40">
+            {isRtl ? 'الوصف' : 'Docs'}
+          </span>
+        </button>
+
+        <button
           onClick={() => setActiveTab('html')}
           className={`px-3 py-2 border-b-2 flex items-center gap-1.5 transition cursor-pointer whitespace-nowrap ${
             activeTab === 'html'
@@ -238,6 +264,7 @@ export const DesktopConfigPanel: React.FC<DesktopConfigPanelProps> = ({
             dir="ltr"
           >
 {`nucleus-desktop/
+├── README.md        (ملف الوصف والتوثيق الهندسي الشامل)
 ├── package.json
 ├── src/
 │   └── index.html       (ملف الواجهة والشيدر)
@@ -250,7 +277,7 @@ export const DesktopConfigPanel: React.FC<DesktopConfigPanelProps> = ({
         </div>
 
         {/* Code Views */}
-        {['tauri', 'package', 'cargo', 'main', 'html'].includes(activeTab) && (
+        {['tauri', 'package', 'cargo', 'main', 'html', 'readme'].includes(activeTab) && (
           <div className="bg-[#12121a] border border-[#1f2438] rounded-lg overflow-hidden">
             <div className="px-3 py-2 bg-[#1a1a26] border-b border-[#252538] flex items-center justify-between">
               <span className="text-xs font-mono font-semibold text-gray-200" dir="ltr">
@@ -259,15 +286,28 @@ export const DesktopConfigPanel: React.FC<DesktopConfigPanelProps> = ({
                 {activeTab === 'cargo' && 'src-tauri/Cargo.toml'}
                 {activeTab === 'main' && 'src-tauri/src/main.rs'}
                 {activeTab === 'html' && 'src/index.html (Desktop Standalone Bundle)'}
+                {activeTab === 'readme' && 'README.md (ملف الوصف الهندسي الكامل)'}
               </span>
 
-              <button
-                onClick={handleCopyCurrent}
-                className="flex items-center gap-1 text-xs font-mono px-2 py-1 bg-[#252538] hover:bg-[#32324a] text-cyan-300 rounded transition cursor-pointer"
-              >
-                {copied ? <Check className="w-3 h-3 text-green-400" /> : <Copy className="w-3 h-3" />}
-                <span>{copied ? t.copiedToClipboard : t.copyCode}</span>
-              </button>
+              <div className="flex items-center gap-2">
+                {activeTab === 'readme' && (
+                  <button
+                    onClick={handleDownloadReadme}
+                    className="flex items-center gap-1 text-xs font-mono px-2 py-1 bg-emerald-950 hover:bg-emerald-900 border border-emerald-500/40 text-emerald-300 rounded transition cursor-pointer"
+                  >
+                    <Download className="w-3 h-3" />
+                    <span>تنزيل README.md</span>
+                  </button>
+                )}
+
+                <button
+                  onClick={handleCopyCurrent}
+                  className="flex items-center gap-1 text-xs font-mono px-2 py-1 bg-[#252538] hover:bg-[#32324a] text-cyan-300 rounded transition cursor-pointer"
+                >
+                  {copied ? <Check className="w-3 h-3 text-green-400" /> : <Copy className="w-3 h-3" />}
+                  <span>{copied ? t.copiedToClipboard : t.copyCode}</span>
+                </button>
+              </div>
             </div>
 
             <pre
